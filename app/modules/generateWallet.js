@@ -58,11 +58,21 @@ export function resetKey() {
 }
 
 // Utils
-export const walletHasKey = (wallet: Object, key: string) =>
-  wallet.accounts.some(account => account.key === key)
+export const walletHasKey = (wallet: Object, key: string) => {
+  if(wallet.accounts) {
+    return wallet.accounts.some(account => account.key === key)
+  } else {
+    return false;
+  }
+}
 
-export const walletHasLabel = (wallet: Object, label: string) =>
-  wallet.accounts.some(account => account.label === label)
+export const walletHasLabel = (wallet: Object, label: string) => {
+  if(wallet.accounts) {
+    return wallet.accounts.some(account => account.label === label)
+  } else {
+    return false;
+  }
+}
 
 export const convertOldWalletAccount = (
   label: string,
